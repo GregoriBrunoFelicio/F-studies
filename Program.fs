@@ -1,18 +1,27 @@
-﻿
+﻿open System
 
-let calculator (opetation:string, value1:int, value2:int) = 
+type Operation =
+           | Add 
+           | Subtract 
+           | Multiply 
+           | Divide   
+
+
+let sum (n1:int, n2:int) = n1 + n2
+let sub (n1:int, n2:int) = n1 - n2
+let multiply (n1:int, n2:int) = n1 * n2
+let div (n1:int, n2:int) = n1 / n2
+
+
+let calculator (opetation:Operation, value1:int, value2:int) = 
              match opetation with
-             | "" -> printf "Type a value."
-             | "+" -> printf "Result: %i" (value1 + value2)
-             | "-" -> printf "Result: %i" (value1 - value2)
-             | "*" -> printf "Result: %i" (value1 * value2)
-             | "/" -> printf "Result: %i" (value1 / value2)
-             | _ -> printf "Opetations options: + - / *" 
+             | Operation.Add -> "Result:" + sum(value1, value2).ToString()
+             | Operation.Subtract -> "Result:" + sub(value1, value2).ToString()
+             | Operation.Multiply -> "Result:" + multiply(value1, value2).ToString()
+             | Operation.Divide -> "Result:" + div(value1, value2).ToString()
 
-
-open System
 
 [<EntryPoint>]
 let main argv =
-    calculator("/", 123, 5)
+    printf "%s" (calculator(Operation.Add, 123, 5))
     0 

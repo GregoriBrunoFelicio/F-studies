@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mUwlgmPSHqbkFedg08xfi5wmk3KKkbPqpQgkHn42F6TSqWja8BUPAI0n3TV3cbZDiRbWYfHRNx/78C4ZyWqDlA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\GregoriBrunoFelicio\\Desktop\\Repositories\\FSharp\\F-Estudies\\F-Estudies.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GregoriBrunoFelicio\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

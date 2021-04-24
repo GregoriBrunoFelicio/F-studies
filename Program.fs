@@ -21,7 +21,19 @@ let calculator (opetation:Operation, value1:int, value2:int) =
              | Operation.Divide -> "Result:" + div(value1, value2).ToString()
 
 
+let rec printArray array = 
+        match array with
+        | [] -> ()
+        | head::tail -> printf "%i" head
+                        printArray tail
+
+let counterUntil n = [1..n] |> printArray
+
+let removeFromArray n array = array |> List.filter(fun x -> x <> n) |> printArray
+
+
 [<EntryPoint>]
 let main argv =
-    printf "%s" (calculator(Operation.Add, 123, 5))
+    counterUntil 10
+
     0 

@@ -6,12 +6,10 @@ type Operation =
            | Multiply 
            | Divide   
 
-
 let sum (n1:int, n2:int) = n1 + n2
 let sub (n1:int, n2:int) = n1 - n2
 let multiply (n1:int, n2:int) = n1 * n2
 let div (n1:int, n2:int) = n1 / n2
-
 
 let calculator (opetation:Operation, value1:int, value2:int) = 
              match opetation with
@@ -31,7 +29,6 @@ let counterUntil n = [1..n] |> printArray
 
 let removeFromArray n array = array |> List.filter(fun x -> x <> n) |> printArray
 
-
 let rec replaceElementFromArrayUsingRecursion element newElement array aux =
                         match array with
                         | head::tail when head = element -> aux@[newElement]@tail; 
@@ -41,9 +38,15 @@ let rec replaceElementFromArrayUsingRecursion element newElement array aux =
 let replaceElementFromArray element newElement array = array |> List.map (fun x -> match x with
                                                                                     | x when x = element -> newElement
                                                                                     | element -> element)
+let rec arraySize array size = 
+                match array with
+                | [] -> 0
+                | head::tail -> arraySize tail size+1
+                
+
 
 
 [<EntryPoint>]
 let main argv =
-    printf "%A"  (replaceElementFromArray 1 99 [1;3;4;5])
+    printf "%i" (arraySize [1..10] 0)
     0 

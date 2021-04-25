@@ -24,7 +24,7 @@ let calculator (opetation:Operation, value1:int, value2:int) =
 let rec printArray array = 
         match array with
         | [] -> ()
-        | head::tail -> printf "%i" head
+        | head::tail -> printf "%A" head
                         printArray tail
 
 let counterUntil n = [1..n] |> printArray
@@ -32,8 +32,15 @@ let counterUntil n = [1..n] |> printArray
 let removeFromArray n array = array |> List.filter(fun x -> x <> n) |> printArray
 
 
+let rec replaceElementFromArray element newElement array aux =
+                        match array with
+                        | head::tail when head = element -> aux@[newElement]@tail; 
+                        | head::tail -> replaceElementFromArray element newElement tail (aux@[head])
+                        | [] ->  aux
+    
+
+
 [<EntryPoint>]
 let main argv =
-    counterUntil 10
-
+    printf "%A"  (replaceElementFromArray 5 99 [1..100] [])
     0 

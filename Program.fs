@@ -36,17 +36,19 @@ let rec replaceElementFromArrayUsingRecursion element newElement array aux =
                         | [] ->  aux
 
 let replaceElementFromArray element newElement array = array |> List.map (fun x -> match x with
-                                                                                    | x when x = element -> newElement
                                                                                     | element -> element)
+
+
 let rec arraySize array size = 
                 match array with
                 | [] -> 0
                 | head::tail -> arraySize tail size+1
                 
+let arrayContains array element = array |> List.filter (fun x -> x = element) |> List.length > 0
 
 
 
 [<EntryPoint>]
 let main argv =
-    printf "%i" (arraySize [1..10] 0)
+    printf "%A" (arrayContains [1..10] 323)
     0 

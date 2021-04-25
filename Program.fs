@@ -37,10 +37,13 @@ let rec replaceElementFromArray element newElement array aux =
                         | head::tail when head = element -> aux@[newElement]@tail; 
                         | head::tail -> replaceElementFromArray element newElement tail (aux@[head])
                         | [] ->  aux
-    
+
+let replaceElementFromArray2 element newElement array = array |> List.map (fun x -> match x with
+                                                                                    | x when x = element -> newElement
+                                                                                    | element -> element)
 
 
 [<EntryPoint>]
 let main argv =
-    printf "%A"  (replaceElementFromArray 5 99 [1..100] [])
+    printf "%A"  (replaceElementFromArray2 1 99 [1;3;4;5])
     0 

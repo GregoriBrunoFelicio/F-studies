@@ -47,8 +47,16 @@ let rec arraySize array size =
                 
 let arrayContains array element = array |> List.filter (fun x -> x = element) |> List.length > 0
 
+let biggest n1 n2 =
+        match n1 with
+        | n1 when n1 = n2 -> 0
+        | n1 when n1 > n2 -> n1
+        | _ -> n2
+
+
+
 
 [<EntryPoint>]
 let main argv =
-    printf "%A" (replaceElementFromArray 1 22 [1..10] )
+    printf "%i" (biggest 10 222)
     0 

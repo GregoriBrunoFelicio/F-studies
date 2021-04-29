@@ -52,11 +52,16 @@ let biggest n1 n2 =
         | n1 when n1 = n2 -> 0
         | n1 when n1 > n2 -> n1
         | _ -> n2
+        
 
-
+let rec factorial n =
+          match n with
+          | 0 -> 1
+          | 1 -> 1
+          | _ -> n * factorial(n-1)
 
 
 [<EntryPoint>]
 let main argv =
-    printf "%i" (biggest 10 222)
+    printf "%i" (factorial 3)
     0 

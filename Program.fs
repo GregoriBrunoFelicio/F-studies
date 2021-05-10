@@ -61,7 +61,10 @@ let rec factorial n =
           | _ -> n * factorial(n-1)
 
 
+let bind = [1;2;3] |> List.map(fun x -> x+10) |> List.reduce(fun x y -> x+y) 
+
+
 [<EntryPoint>]
 let main argv =
-    printf "%i" (factorial 3)
+    printf "%i" (bind)
     0 

@@ -61,10 +61,17 @@ let rec factorial n =
           | _ -> n * factorial(n-1)
 
 
-let bind = [1;2;3] |> List.map(fun x -> x+10) |> List.reduce(fun x y -> x+y) 
+let bind = [1..100] |> List.map(fun x -> x+10) |> List.reduce(fun x y -> x+y) 
+
+type Person = { Name:string; Age:int}
+
+let add (person:Person) = 
+        match person with
+        | x when x.Age < 18 -> []
+        | x -> [x] 
 
 
 [<EntryPoint>]
 let main argv =
-    printf "%i" (bind)
+    printf "%A" (add {Name="ASD";Age=133})
     0 

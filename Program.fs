@@ -18,14 +18,13 @@ let calculator (opetation:Operation, value1:int, value2:int) =
              | Operation.Multiply -> "Result:" + multiply(value1, value2).ToString()
              | Operation.Divide -> "Result:" + div(value1, value2).ToString()
 
-
 let rec printArray array = 
         match array with
         | [] -> ()
         | head::tail -> printf "%A" head
                         printArray tail
 
-let counterUntil n = [1..n] |> printArray
+let countUntil n = [1..n] |> printArray
 
 let removeFromArray n array = array |> List.filter(fun x -> x <> n) |> printArray
 
@@ -39,7 +38,6 @@ let replaceElementFromArray element newElement array = array |> List.map (fun x 
                                                                                    | x when x = element -> newElement
                                                                                    | element -> element)
 
-
 let rec arraySize array size = 
                 match array with
                 | [] -> 0
@@ -52,7 +50,6 @@ let biggest n1 n2 =
         | n1 when n1 = n2 -> 0
         | n1 when n1 > n2 -> n1
         | _ -> n2
-        
 
 let rec factorial n =
           match n with
@@ -70,8 +67,26 @@ let add (person:Person) =
         | x when x.Age < 18 -> []
         | x -> [x] 
 
+let test (x:string, y:string) =
+  if x = y then "equals"
+  elif x < y then "is less than"
+  else "is greater than"
+
+let IfNormal x =
+    if x = 1
+    then "é um"
+    else "é não"
+
+let paternMatch x =
+        match x with
+        | 1 -> 1
+        | _ -> 0
+
+let print = printf "Ola mundo 1"
+            let a = 6666
+            printf "%i" a 
 
 [<EntryPoint>]
 let main argv =
-    printf "%A" (add {Name="ASD";Age=133})
+    print
     0 
